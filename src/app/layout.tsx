@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
-import Header from "../pages/Header";
-import Footer from "../pages/Footer";
 import path from "../../public/Path.svg";
 import shape from "../../public/Shape.svg";
 import shape2 from "../../public/Shape-2.svg";
@@ -27,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <section className="container flex gap-8">
+        <section className="container gap-8">
           <div className={style.wrapper}>
             <div className={style.flapper}>
               <div>
@@ -54,7 +52,6 @@ export default function RootLayout({
           </div>
           <main className="mt-10">{children}</main>
         </section>
-        <Footer />
       </body>
     </html>
   );
