@@ -1,7 +1,6 @@
-import Image from "next/image";
+import Bookmarked from "@/app/bookmarked/page";
+import Movies from "@/app/movies/page";
 
 export default function Home() {
-  return (
-    <section className="flex min-h-screen flex-col items-center justify-between p-24"></section>
-  );
+  return <></>;
 }

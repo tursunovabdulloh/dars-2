@@ -1,5 +1,5 @@
 .wrapper {
-  height: 785px;
+  height: 700px;
   width: 96px;
   margin-top: 10px;
   margin-left: 32px;
@@ -49,4 +49,7 @@
 .svg:active {
   filter: brightness(0) saturate(100%) invert(12%) sepia(100%) saturate(7498%)
     hue-rotate(357deg) brightness(97%) contrast(116%);
+}
+.oval {
+  margin-top: 320px;
 }
