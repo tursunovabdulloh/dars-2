@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <section className="container gap-8">
+        <section className="container flex gap-8">
           <div className={style.wrapper}>
             <div className={style.flapper}>
               <div>
