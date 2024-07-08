@@ -18,38 +18,19 @@
   display: flex;
   flex-direction: column;
   row-gap: 40px;
-}
-.svg1 {
-  width: 32px;
-  height: 26px;
-  margin-bottom: 75px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  margin-top: 70px;
 }
 
-.svg1:hover {
-  transform: scale(1.1);
-  filter: brightness(0) invert(1);
-}
-
-.svg1:active {
-  filter: brightness(0) saturate(100%) invert(12%) sepia(100%) saturate(7498%)
-    hue-rotate(357deg) brightness(97%) contrast(116%);
-}
-.svg {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: brightness(0.8) sepia(3) hue-rotate(180deg);
-}
-.svg:hover {
-  transform: scale(1.1);
-  filter: brightness(0) invert(1);
-}
-
-.svg:active {
-  filter: brightness(0) saturate(100%) invert(12%) sepia(100%) saturate(7498%)
-    hue-rotate(357deg) brightness(97%) contrast(116%);
-}
 .oval {
   margin-top: 320px;
+}
+.link {
+  width: 20px;
+  height: 20px;
+}
+
+.link.active {
+  background-color: white;
+  border-radius: 50%;
+  padding: 4px;
 }

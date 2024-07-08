@@ -1,10 +1,20 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import lupa from "../../../public/search.svg";
-import rasm from "../../../public/Rectangle.png";
-import kino from "../../../public/Shape3.svg";
 import style from "./style.module.css";
+import MovieItem from "@/components/Item";
+import { getMovies } from "../queris";
+import Image from "next/image";
+import { Movie } from "@/types";
 
 export default function bookmarked() {
+  const [request, setRequest] = useState<Movie[]>([]);
+  const [refresh, setUpdate] = useState<boolean>(false);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("favourites") as string) ?? [];
+    setRequest(data);
+  }, [refresh]);
   return (
     <section>
       <div className="container">
@@ -21,134 +31,12 @@ export default function bookmarked() {
             Bookmarked
           </p>
           <div className={style.cardWrapper}>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
-            <div className={style.card}>
-              <img src={rasm.src} alt="" width={280} />
-              <div className={style.cardBody}>
-                <div>
-                  <p className={style.cardLi}>2019</p>
-                </div>
-                <div className={style.cardMovies}>
-                  <img src={kino.src} alt="" />
-                  <p className={style.cardLi}>Movies</p>
-                </div>
-                <div>
-                  <p className={style.cardLi}>PG</p>
-                </div>
-              </div>
-              <div className={style.cardTitle}>The Great Lands</div>
-            </div>
+            {request?.map((movie: Movie) => (
+              <MovieItem
+                data={{ ...movie, setUpdate: setUpdate }}
+                key={movie.id}
+              />
+            ))}
           </div>
         </div>
       </div>
